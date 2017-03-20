@@ -7,6 +7,7 @@ target 'Instify' do
 
   # Pods for Instify
   pod 'Parse'
+  pod 'PKHUD'
 
   target 'InstifyTests' do
     inherit! :search_paths

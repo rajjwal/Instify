@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -18,13 +19,14 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
+        PKHUD.sharedHUD.contentView = PKHUDSuccessView()
         
         
         imagepicker.delegate = self
         selectedImageView.image = nil
-        
+        captureLabel.text = nil
         
     }
     
@@ -49,11 +51,18 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func onPostButtonPressed(_ sender: Any) {
+        
+        HUD.show(.progress)
+        
         Post.postUserImage(image: selectedImageView.image,
                            withCaption: captureLabel.text,
                            withCompletion: { _ in
-                            // Nothing for now
-        })
+                            DispatchQueue.main.async {
+                                self.selectedImageView.image = nil
+                                self.captureLabel.text = nil
+                                HUD.flash(.success)
+                            }}
+        )
     }
     
     
