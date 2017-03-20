@@ -15,6 +15,8 @@
 		DD7F23191E7F8F15006D8610 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F23181E7F8F15006D8610 /* CaptureViewController.swift */; };
 		DD7F231C1E7F9381006D8610 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F231B1E7F9381006D8610 /* Post.swift */; };
 		DD7F231E1E7F944A006D8610 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F231D1E7F944A006D8610 /* MainTabBarController.swift */; };
+		DD7F23231E7FB880006D8610 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F23221E7FB880006D8610 /* ParseClient.swift */; };
+		DD7F23251E7FCA20006D8610 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F23241E7FCA20006D8610 /* PostTableViewCell.swift */; };
 		DDEB30771E7F71AE003D71EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEB30761E7F71AE003D71EA /* AppDelegate.swift */; };
 		DDEB307C1E7F71AE003D71EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEB307A1E7F71AE003D71EA /* Main.storyboard */; };
 		DDEB307E1E7F71AE003D71EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEB307D1E7F71AE003D71EA /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		DD7F23181E7F8F15006D8610 /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		DD7F231B1E7F9381006D8610 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DD7F231D1E7F944A006D8610 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		DD7F23221E7FB880006D8610 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
+		DD7F23241E7FCA20006D8610 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		DDE421C4EEF5B9C3D3100947 /* Pods-InstifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstifyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstifyTests/Pods-InstifyTests.release.xcconfig"; sourceTree = "<group>"; };
 		DDEB30731E7F71AE003D71EA /* Instify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEB30761E7F71AE003D71EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,18 +127,20 @@
 		DD7F23101E7F774C006D8610 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F23241E7FCA20006D8610 /* PostTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		DD7F23111E7F7752006D8610 /* View Controllers */ = {
+		DD7F23111E7F7752006D8610 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				DD7F23121E7F7768006D8610 /* LoginViewController.swift */,
 				DD7F23161E7F8A6E006D8610 /* HomeViewController.swift */,
 				DD7F23181E7F8F15006D8610 /* CaptureViewController.swift */,
+				DD7F231D1E7F944A006D8610 /* MainTabBarController.swift */,
 			);
-			name = "View Controllers";
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		DD7F231A1E7F9361006D8610 /* Model */ = {
@@ -148,6 +154,7 @@
 		DD7F231F1E7F95EB006D8610 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F23221E7FB880006D8610 /* ParseClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -179,11 +186,10 @@
 			children = (
 				DD7F231F1E7F95EB006D8610 /* API */,
 				DD7F231A1E7F9361006D8610 /* Model */,
-				DD7F23111E7F7752006D8610 /* View Controllers */,
 				DD7F23101E7F774C006D8610 /* Views */,
+				DD7F23111E7F7752006D8610 /* Controllers */,
 				DDEB30761E7F71AE003D71EA /* AppDelegate.swift */,
 				DDEB307A1E7F71AE003D71EA /* Main.storyboard */,
-				DD7F231D1E7F944A006D8610 /* MainTabBarController.swift */,
 				DDEB307D1E7F71AE003D71EA /* Assets.xcassets */,
 				DDEB307F1E7F71AE003D71EA /* LaunchScreen.storyboard */,
 				DDEB30821E7F71AE003D71EA /* Info.plist */,
@@ -496,8 +502,10 @@
 				DD7F23131E7F7768006D8610 /* LoginViewController.swift in Sources */,
 				DD7F23191E7F8F15006D8610 /* CaptureViewController.swift in Sources */,
 				DD7F231E1E7F944A006D8610 /* MainTabBarController.swift in Sources */,
+				DD7F23251E7FCA20006D8610 /* PostTableViewCell.swift in Sources */,
 				DDEB30771E7F71AE003D71EA /* AppDelegate.swift in Sources */,
 				DD7F23171E7F8A6E006D8610 /* HomeViewController.swift in Sources */,
+				DD7F23231E7FB880006D8610 /* ParseClient.swift in Sources */,
 				DD7F231C1E7F9381006D8610 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

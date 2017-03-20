@@ -7,6 +7,8 @@ target 'Instify' do
 
   # Pods for Instify
   pod 'Parse'
+  pod 'ParseUI'
+  pod 'AFNetworking'
   pod 'PKHUD'
 
   target 'InstifyTests' do

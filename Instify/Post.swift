@@ -12,7 +12,56 @@ import Parse
 
 class Post: NSObject {
     
+    var dateStr: String?
+    let media: PFFile?
+    let username: String?
+    let caption: String?
     
+    init(pfObject: PFObject) {
+        print(pfObject)
+        
+        if let postDate = pfObject.createdAt{
+            let calendar = NSCalendar.current
+            let components = calendar.dateComponents([.day,.hour,.minute,.second], from: postDate, to: Date())
+            let day = components.day!
+            let hour = components.hour!
+            let minute = components.minute!
+            let second = components.second!
+            
+            if day > 0{
+                if day > 1{
+                    dateStr = "\(day) days ago"
+                }
+                else{
+                    dateStr = "1 day ago"
+                }
+            }
+            else if hour > 0{
+                if hour > 1{
+                    dateStr = "\(hour) hours ago"
+                }
+                else{
+                    dateStr = "1 hours ago"
+                }
+            }
+            else if minute > 0{
+                if minute > 1{
+                    dateStr = "\(minute) minutes ago"
+                }
+                else{
+                    dateStr = "1 minutes ago"
+                }
+            }
+            else{
+                dateStr = "\(second) seconds ago"
+            }
+        }
+        
+        media = pfObject["media"] as? PFFile
+        username = pfObject["username"] as? String
+        caption = pfObject["caption"] as? String
+    }
+
     /**
      Method to add a user post to Parse (uploading image file)
      
@@ -25,12 +74,12 @@ class Post: NSObject {
         let post = PFObject(className: "Post")
         
         // Add relevant fields to the object
+        post["creationTime"] = Date.timeIntervalSinceReferenceDate
         post["media"] = getPFFileFromImage(image: image) // PFFile column type
-        post["author"] = PFUser.current() // Pointer column type that points to PFUser
-        post["caption"] = caption
-        post["likesCount"] = 0
-        post["commentsCount"] = 0
+        post["username"] = PFUser.current()?.username! // Pointer column type that points to PFUser
+        post["caption"] = caption ?? "My photography skills"
         
+
         // Save object (following function will save the object in Parse asynchronously)
         post.saveInBackground(block: completion)
     }
@@ -67,8 +116,5 @@ class Post: NSObject {
         UIGraphicsEndImageContext()
         return newImage
     }
-
-    
-    
 
 }
