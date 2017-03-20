@@ -57,30 +57,101 @@
                     <connections>
                         <outlet property="passwordField" destination="b4I-Oq-uVD" id="HgZ-aB-sKR"/>
                         <outlet property="usernameField" destination="8k4-iJ-KI1" id="LZi-IL-xMS"/>
-                        <segue destination="bj7-8Z-8M0" kind="presentation" identifier="loginSegue" id="xIj-KS-2Ij"/>
+                        <segue destination="ZcU-jE-DZs" kind="presentation" identifier="loginSegue" id="KcV-ta-MjH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+            <point key="canvasLocation" x="-770" y="123"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="Tf3-2Z-D8N">
             <objects>
-                <viewController id="bj7-8Z-8M0" sceneMemberID="viewController">
+                <viewController id="bj7-8Z-8M0" customClass="CaptureViewController" customModule="Instify" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kMW-RJ-naj"/>
                         <viewControllerLayoutGuide type="bottom" id="9gF-eM-ctU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ybv-3f-ymv">
+                    <view key="view" contentMode="scaleToFill" id="aUm-6j-EgP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gvv-SS-CZy" userLabel="Main">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VPF-1R-Y9B">
+                                        <rect key="frame" x="38" y="90" width="300" height="419"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" verticalHuggingPriority="245" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHX-f3-7q7" userLabel="Image Selection View">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="327"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oc3-Xz-PDM">
+                                                        <rect key="frame" x="67" y="148" width="167" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Tap to select an image..."/>
+                                                        <connections>
+                                                            <action selector="onAddButtonPressed:" destination="bj7-8Z-8M0" eventType="touchUpInside" id="hGm-Gy-IGc"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="245" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LO3-dT-zpi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="327"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <gestureRecognizers/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="755" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFa-3r-vIO">
+                                                <rect key="frame" x="0.0" y="343" width="300" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="755" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fg1-em-kd4">
+                                                <rect key="frame" x="0.0" y="389" width="300" height="30"/>
+                                                <state key="normal" title="Post"/>
+                                                <connections>
+                                                    <action selector="onPostButtonPressed:" destination="bj7-8Z-8M0" eventType="touchUpInside" id="5wr-DA-2zd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="CkL-yT-xMw"/>
+                    <connections>
+                        <outlet property="captureLabel" destination="RFa-3r-vIO" id="bcB-uh-0x7"/>
+                        <outlet property="imageSelectionView" destination="MHX-f3-7q7" id="xEM-So-yNh"/>
+                        <outlet property="selectedImageView" destination="LO3-dT-zpi" id="OoO-4x-t99"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfE-y1-DQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="892" y="123"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="Rwg-TK-4uZ">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="ZcU-jE-DZs" customClass="MainTabBarController" customModule="Instify" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fmY-ge-oaZ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bj7-8Z-8M0" kind="relationship" relationship="viewControllers" id="pXd-Rx-feW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="62n-bP-39m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10" y="123"/>
         </scene>
     </scenes>
 </document>

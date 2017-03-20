@@ -43,5 +43,15 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>used in Instagram post</string>
+    
 </dict>
 </plist>

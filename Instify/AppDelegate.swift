@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        
         // Override point for customization after application launch.
         
         
@@ -31,6 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        if let _ = PFUser.current() {
+//            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController
+//        } else {
+//            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
+//        }
+//
+//        
         
         
         
