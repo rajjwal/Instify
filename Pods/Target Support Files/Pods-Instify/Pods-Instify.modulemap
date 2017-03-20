@@ -1,0 +1,6 @@
+framework module Pods_Instify {
+  umbrella header "Pods-Instify-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_InstifyTests {
+  umbrella header "Pods-InstifyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
